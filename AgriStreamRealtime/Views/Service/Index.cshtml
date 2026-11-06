@@ -1,0 +1,31 @@
+﻿@model IEnumerable<AgriStreamRealtime.Models.Service>
+
+@{
+    ViewData["Title"] = "Service Management";
+}
+
+<div class="container py-4">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2 class="fw-bold">Service Management</h2>
+        <a asp-action="Create" class="btn btn-primary">
+            Add New Service
+        </a>
+    </div>
+
+    <div class="row">
+        @foreach (var service in Model)
+        {
+            <div class="col-md-4 mb-4">
+                <div class="card shadow-sm border-0">
+                    <div class="card-body">
+                        <h5 class="card-title">@service.ServiceTitle</h5>
+                        <p class="card-text">@service.Category</p>
+                        <p class="card-text">Price: R @service.Price.ToString("F2")</p>
+                        <a asp-action="Edit" asp-route-id="@service.ServiceId" class="btn btn-outline-primary">Edit</a>
+                        <a asp-action="Delete" asp-route-id="@service.ServiceId" class="btn btn-outline-danger">Delete</a>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>

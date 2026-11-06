@@ -1,0 +1,43 @@
+﻿@{
+    ViewData["Title"] = "Dashboard";
+}
+
+<div class="container mt-5">
+    <h1 class="text-center mb-4">Agri-Stream Dashboard</h1>
+
+    <div class="row">
+
+        <div class="col-md-6">
+            <div class="card shadow">
+                <div class="card-body text-center">
+
+                    <h4>View Services</h4>
+
+                    <a asp-controller="Service"
+                       asp-action="Create"
+                       class="btn btn-primary">
+                        Open Services
+                    </a>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="card shadow">
+                <div class="card-body text-center">
+
+                    <h4>Add Service</h4>
+
+                    <a asp-controller="Service"
+                       asp-action="Create"
+                       class="btn btn-success">
+                        Add Service
+                    </a>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

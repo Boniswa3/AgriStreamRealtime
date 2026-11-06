@@ -1,0 +1,98 @@
+﻿@model AgriStreamRealtime.Models.Service
+
+@{
+    ViewData["Title"] = "Add New Service";
+}
+
+<div class="container py-4">
+
+    <div class="mb-4">
+        <p class="text-primary fw-bold mb-1">Agri Service MANAGEMENT</p>
+        <h2 class="fw-bold">Add New Service</h2>
+        <p class="text-muted">Enter the service details below.</p>
+    </div>
+
+    <div class="card shadow-sm border-0">
+        <div class="card-body p-4">
+
+            <form asp-action="Create"
+                  method="post"
+                  enctype="multipart/form-data">
+
+                <div asp-validation-summary="ModelOnly"
+                     class="text-danger mb-3"></div>
+
+                <div class="mb-3">
+                    <label asp-for="ServiceTitle" class="form-label">
+                        Service Title
+                    </label>
+                    <input asp-for="ServiceTitle" class="form-control"
+                           placeholder="Enter service title" />
+                    <span asp-validation-for="ServiceTitle"
+                          class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <label asp-for="Category" class="form-label">
+                        Category
+                    </label>
+                    <select asp-for="Category" class="form-select">
+                        <option value="">Select category</option>
+                        <option>Poultry house Monitoring</option>
+                        <option>Feed silo & Water Levels</option>
+                        <option>Water Reosurce monitoring</option>
+                        <option>Cold Chain & ASSET Security</option>
+                        <option>Multi-network data Pooling</option>
+                        <option>Secure Networking</option>
+                        <option>Production 7 Health Analysis</option>
+                        <option>Other</option>
+                    </select>
+                    <span asp-validation-for="Category"
+                          class="text-danger"></span>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label asp-for="Price" class="form-label">
+                            Price (R)
+                        </label>
+                        <input asp-for="Price" type="number"
+                               step="0.01" min="0"
+                               class="form-control"
+                               placeholder="0.00" />
+                        <span asp-validation-for="Price"
+                              class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Service drone Image</label>
+
+                    <input type="file"
+                           name="coverImage"
+                           class="form-control"
+                           accept=".jpg,.jpeg,.png,.webp" />
+
+                    <small class="text-muted">
+                        Accepted formats: JPG, PNG and WEBP. Maximum size: 5 MB.
+                    </small>
+                </div>
+
+                <div class="d-flex gap-2 mt-3">
+                    <button type="submit" class="btn btn-primary">
+                        Save Service
+                    </button>
+
+                    <a asp-action="Index"
+                       class="btn btn-outline-secondary">
+                        Cancel
+                    </a>
+                </div>
+
+                <!-- Add the closing form tag to fix RZ1034 -->
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
